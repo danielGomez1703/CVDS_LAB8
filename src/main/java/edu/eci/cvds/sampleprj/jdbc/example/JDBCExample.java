@@ -108,6 +108,7 @@ public class JDBCExample {
         //usar executeQuery
         //Sacar resultados del ResultSet
         //Llenar la lista y retornarla
+        
         preparedStatment = con.prepareStatement("SELECT ORD_PRODUCTOS.nombre  FROM ORD_DETALLE_PEDIDO INNER JOIN ORD_PRODUCTOS ON  ORD_DETALLE_PEDIDO.producto_fk = ORD_PRODUCTOS.codigo \n" +
 "WHERE ORD_DETALLE_PEDIDO.pedido_fk = ?");
         preparedStatment.setInt(1,codigoPedido);
@@ -133,7 +134,6 @@ public class JDBCExample {
         //usar executeQuery
         //Sacar resultado del ResultSet
         int resultado=0;
-        
         preparedStatment = con.prepareStatement("SELECT ORD_PRODUCTOS.precio  FROM ORD_DETALLE_PEDIDO INNER JOIN ORD_PRODUCTOS ON  ORD_DETALLE_PEDIDO.producto_fk = ORD_PRODUCTOS.codigo \n" +
 "WHERE ORD_DETALLE_PEDIDO.pedido_fk = ?");
         preparedStatment.setInt(1,codigoPedido);
