@@ -12,7 +12,7 @@ import java.util.List;
 
 /**
  *
- * @author 2106913
+ * @author daniel.gomez-su
  */
 public interface ItemRentadoMapper {
 

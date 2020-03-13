@@ -5,11 +5,10 @@
 
 <mapper namespace="edu.eci.cvds.sampleprj.dao.mybatis.mappers.ItemRentado">
 
-    <resultMap type = "ItemResult" id="ItemRentadoResult">
+    <resultMap type = "ItemRentado" id="ItemRentadoResult">
         <id property ='id' column="id" />
-        <id property ='item' column="item" />
         <id property ='fechainiciorenta' column="fechainiciorenta" />
         <id property ='fechafinrenta' column="fechafinrenta" />
-        <collection property="rentados" ofType="ItemRentado" resultMap="du.eci.cvds.sampleprj.dao.mybatis.mappers.ItemResult" ></collection>
+        <association property="item" javaType="Item" columnPrefix="i_" resultMap="edu.eci.cvds.sampleprj.dao.mybatis.mappers.ItemMapper.ItemResult"></association>
     </resultMap>
 </mapper>
