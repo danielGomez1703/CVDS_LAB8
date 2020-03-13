@@ -13,6 +13,7 @@ import java.util.Date;
  * @author 2106913
  */
 public class Item implements Serializable{
+
     private TipoItem tipo;
     private int id;
     private String nombre;

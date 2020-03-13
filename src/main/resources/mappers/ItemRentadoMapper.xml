@@ -2,12 +2,14 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
 <mapper namespace="edu.eci.cvds.sampleprj.dao.mybatis.mappers.ItemRentado">
-    <resultMap type = "Cliente" id="ClienteResult">
+
+    <resultMap type = "ItemResult" id="ItemRentadoResult">
         <id property ='id' column="id" />
         <id property ='item' column="item" />
         <id property ='fechainiciorenta' column="fechainiciorenta" />
         <id property ='fechafinrenta' column="fechafinrenta" />
-        <collection property="rentados" ofType="ItemRentado" resultMap="du.eci.cvds.sampleprj.dao.mybatis.mappers."></collection>
+        <collection property="rentados" ofType="ItemRentado" resultMap="du.eci.cvds.sampleprj.dao.mybatis.mappers.ItemResult" ></collection>
     </resultMap>
 </mapper>
