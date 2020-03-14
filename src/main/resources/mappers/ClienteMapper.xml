@@ -31,14 +31,18 @@
         left join VI_TIPOITEM as ti on i.TIPOITEM_id=ti.id 
     </select>
     
-    <resultMap type = "Cliente" id="ClienteResult">
+    <resultMap type ="Cliente" id="ClienteResult">
             <id property ='nombre' column="nombre" />
             <id property ='documento' column="documento" />
             <id property ='telefono' column="telefono" />
             <id property ='direccion' column="direccion" />
             <id property ='email' column="email" />
             <id property ='vetado' column="vetado" />
-            <collection property="rentados" ofType="ItemRentado" resultMap="edu.eci.cvds.sampleprj.dao.mybatis.mappers.ItemRentadoMapper.ItemRentadoResult" columnPrefix ="ir_"></collection>
+            <collection property="rentados" ofType="ItemRentado" resultMap="edu.eci.cvds.sampleprj.dao.mybatis.mappers.ItemRentado.ItemRentadoResult" columnPrefix ="ir_"></collection>
     </resultMap>
-
+    
+    <insert id="agregarItemRentadoACliente" parameterType="map">
+        insert into VI_CLIENTES (documento,nombre,telefono,direccion,email,vetado)
+        values (#{c.documento},#{c.nombre},#{c.telefono},#{c.direccion},#{c.email},#{c.vetado}
+    </insert>
 </mapper>

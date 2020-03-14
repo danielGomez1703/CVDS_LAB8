@@ -5,7 +5,7 @@
 
 <mapper namespace="edu.eci.cvds.sampleprj.dao.mybatis.mappers.ItemRentado">
 
-    <resultMap type = "ItemRentado" id="ItemRentadoResult">
+    <resultMap type="ItemRentado" id="ItemRentadoResult">
         <id property ='id' column="id" />
         <id property ='fechainiciorenta' column="fechainiciorenta" />
         <id property ='fechafinrenta' column="fechafinrenta" />
