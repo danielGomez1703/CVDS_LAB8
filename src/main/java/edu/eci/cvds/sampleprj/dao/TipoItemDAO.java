@@ -5,10 +5,14 @@
  */
 package edu.eci.cvds.sampleprj.dao;
 
+import edu.eci.cvds.samples.entities.TipoItem;
+
 /**
  *
  * @author daniel.gomez-su
  */
-public class TipoItemDAO {
-    
+public interface TipoItemDAO {
+       public void save(TipoItem it) throws PersistenceException;
+
+       public TipoItem load(int id) throws PersistenceException;
 }
