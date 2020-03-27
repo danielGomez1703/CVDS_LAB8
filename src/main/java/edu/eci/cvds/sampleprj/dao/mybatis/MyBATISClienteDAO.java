@@ -19,6 +19,8 @@ import edu.eci.cvds.sampleprj.dao.mybatis.mappers.ClienteMapper;
 import edu.eci.cvds.samples.entities.Cliente;
 import edu.eci.cvds.samples.entities.TipoItem;
 import java.sql.SQLException;
+import java.util.Date;
+import java.util.List;
 
 public class MyBATISClienteDAO implements ClienteDAO{
 
@@ -47,5 +49,15 @@ public class MyBATISClienteDAO implements ClienteDAO{
 
 
   }
+
+    @Override
+    public List<Cliente> consultarClientes() throws PersistenceException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void agregarItemRentadoACliente(long id, int idit, Date fechainicio, Date fechafin) throws PersistenceException {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
   }

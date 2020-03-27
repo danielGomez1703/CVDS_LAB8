@@ -44,7 +44,7 @@ public class ServiciosAlquilerItemsStub implements ServiciosAlquiler {
        itemsrentados = new HashMap<>();
        tipositems = new HashMap<>();
        mapaPrestamosPorIdCliente=new HashMap<>();
-       //poblar();
+       poblar();
    }
 
    @Override
@@ -53,10 +53,13 @@ public class ServiciosAlquilerItemsStub implements ServiciosAlquiler {
    }
 
    @Override
-   public Cliente consultarCliente(long docu) throws ExcepcionServiciosAlquiler {
+   public Cliente consultarCliente(long docu) throws ExcepcionServiciosAlquiler,IndexOutOfBoundsException {
        Cliente c=null;
+       
        if(clientes.containsKey(docu)){
            c=clientes.get(docu);
+       }else{
+           throw new ExcepcionServiciosAlquiler("No existe el cleinte con  documento "+docu);
        }
        return c;
    }
@@ -112,7 +115,7 @@ public class ServiciosAlquilerItemsStub implements ServiciosAlquiler {
 
    @Override
    public void actualizarTarifaItem(int id, long tarifa) throws ExcepcionServiciosAlquiler {
-       if (!itemsDisponibles.containsKey(id)) {
+       if (itemsDisponibles.containsKey(id)) {
            Item c = itemsDisponibles.get(id);
            c.setTarifaxDia(tarifa);
            itemsDisponibles.put(id, c);

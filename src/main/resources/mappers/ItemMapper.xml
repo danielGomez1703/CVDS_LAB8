@@ -19,4 +19,52 @@
         insert into VI_ITEMS (id,nombre,descripcion,fechalanzamiento,tarifaxdia,formatorenta,genero,TIPOITEM_id)
         values (#{i.id},#{i.nombre},#{i.descripcion},#{i.fechaLanzamiento},#{i.tarifaxDia},#{i.formatoRenta},#{i.genero},#{i.tipo.id})
     </insert>
+    
+    <select parameterType="map" id="consultarItems" resultMap="ItemResult">
+        SELECT 
+	i.id,
+	i.nombre,
+	i.descripcion,
+	i.fechalanzamiento,
+	i.tarifaxdia,
+	i.formatorenta,
+	i.genero,
+	ti.id as ti_id,
+	ti.descripcion as ti_descripcion	
+	FROM VI_ITEMS as i
+	left join VI_TIPOITEM as ti on i.TIPOITEM_id = ti.id 
+    </select>
+    <select parameterType="map" id="consultarItem" resultMap="ItemResult">
+        SELECT 
+	i.id,
+	i.nombre,
+	i.descripcion,
+	i.fechalanzamiento,
+	i.tarifaxdia,
+	i.formatorenta,
+	i.genero,
+	ti.id as ti_id,
+	ti.descripcion as ti_descripcion
+	
+	FROM VI_ITEMS as i
+	left join VI_TIPOITEM as ti on i.TIPOITEM_id = ti.id where i.id = #{itid}
+    </select>
+    <select parameterType="map" id="consultarDisponibles" resultMap="ItemResult">
+        
+        SELECT
+            r.id as r_id,
+            r.nombre as r_nombre,
+            r.descripcion as r_descripcion,
+            r.fechalanzamiento as r_fechalanzamiento,
+            r.tarifaxdia as r_tarifaxdia,
+            r.formatorenta as r_formatorenta,
+            r.genero as r_genero,
+            ti.id as ti_id as ti_id,
+            ti.descripcion as ti_descripcion
+
+          FROM VI_ITEMS AS r
+          left join VI_TIPOITEM AS ti ON r.TIPOITEM_id=ti.id
+      	  left join VI_ITEMRENTADO AS b ON r.id=b.ITEMS_id
+      	  WHERE b.ITEMS_id IS null
+    </select>
 </mapper>

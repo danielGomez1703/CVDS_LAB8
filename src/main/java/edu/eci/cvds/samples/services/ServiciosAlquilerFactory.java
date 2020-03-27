@@ -26,6 +26,7 @@ import java.util.Optional;
 import static com.google.inject.Guice.createInjector;
 import edu.eci.cvds.sampleprj.dao.ItemRentadoDAO;
 import edu.eci.cvds.sampleprj.dao.mybatis.MyBATISItemRentadoDAO;
+import edu.eci.cvds.samples.services.impl.ServiciosAlquilerItemsStub;
 
 public class ServiciosAlquilerFactory {
 
@@ -43,7 +44,7 @@ public class ServiciosAlquilerFactory {
                bind(ItemDAO.class).to(MyBATISItemDAO.class);
                bind(TipoItemDAO.class).to(MyBATISTipoItemDAO.class);
                bind(ItemRentadoDAO.class).to(MyBATISItemRentadoDAO.class);
-               bind(ServiciosAlquiler.class).to(ServiciosAlquilerImpl.class);
+               bind(ServiciosAlquiler.class).to(ServiciosAlquilerItemsStub.class);
            }
        });
    }
