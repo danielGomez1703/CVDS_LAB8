@@ -43,8 +43,14 @@ public class MyBATISItemDAO implements ItemDAO{
   catch(org.apache.ibatis.exceptions.PersistenceException e){
       throw new PersistenceException("Error al consultar el item "+id,e);
   }
-
-
   }
 
+    @Override
+    public int ValorMultaXDia(int itemId) throws PersistenceException {
+    try{
+        return itemMapper.ValorMultaXDia(itemId);
+    }catch(org.apache.ibatis.exceptions.PersistenceException e){
+        throw new PersistenceException("Error al consultar el item "+itemId,e);
+        }
+    }
   }

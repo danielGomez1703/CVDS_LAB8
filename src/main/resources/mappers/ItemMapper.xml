@@ -67,4 +67,7 @@
       	  left join VI_ITEMRENTADO AS b ON r.id=b.ITEMS_id
       	  WHERE b.ITEMS_id IS null
     </select>
+    <select parameterType="map" id="ValorMultaXDia" resultMap="ItemResult">
+        SELECT tarifaxdia FROM VI_ITEMS WHERE id = #{itemid}
+    </select>
 </mapper>

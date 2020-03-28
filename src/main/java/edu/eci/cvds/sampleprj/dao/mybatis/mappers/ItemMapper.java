@@ -21,6 +21,8 @@ public interface ItemMapper {
     
     public List<Item> consultarDisponibles();
 
+    public int ValorMultaXDia(@Param("itemid")int itemId);
+
 
         
 }

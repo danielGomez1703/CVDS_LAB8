@@ -41,7 +41,15 @@ public class ServiciosAlquilerImpl implements ServiciosAlquiler {
 
    @Override
    public int valorMultaRetrasoxDia(int itemId) {
-       throw new UnsupportedOperationException("Not supported yet.");
+       int valor=0;
+       try{
+           valor= itemDAO.ValorMultaXDia(itemId);
+       }catch (PersistenceException e){
+           
+       }
+       return valor;
+       
+     
    }
 
    @Override
